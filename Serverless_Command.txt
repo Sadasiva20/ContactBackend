@@ -1,0 +1,7 @@
+
+start from the root directory which contains the serverless.yaml file. 
+
+
+
+
+serverless invoke local --function contact --path ../src/functions/auth/register/ContactEvent.json

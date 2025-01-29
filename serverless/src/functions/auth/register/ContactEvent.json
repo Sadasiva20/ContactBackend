@@ -1,0 +1,11 @@
+{
+    "body": "{\"firstname\":\"John\",\"lastname\":\"Smith\",\"email\":\"JS@yahoo.com\",\"phoneNumber\":\"9107834675\",\"contactOwner\":\"Mark\"}",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "httpMethod": "POST",
+    "isBase64Encoded": false,
+    "path": "/contact",
+    "queryStringParameters": null
+  }
+  

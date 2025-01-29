@@ -1,0 +1,19 @@
+{
+  "name": "contactbackend",
+  "version": "1.0.0",
+  "description": "backend interface for contact form",
+  "main": "contact.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "serverless-offline": "^14.4.0"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1692.0",
+    "secure-crypto-random": "^1.2.0",
+    "uuid-base58": "^1.3.0"
+  }
+}

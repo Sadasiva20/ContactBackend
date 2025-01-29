@@ -1,0 +1,56 @@
+service: contact-service
+
+frameworkVersion: '4'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+  environment:
+    TABLE_NAME: Contacts
+    COUNTER_TABLE: Counters
+
+functions:
+  createcontact:
+    handler: ../src/functions/auth/contacts/contact.contact 
+    events:
+      - http:
+          path: contact
+          method: post
+          cors: true
+
+resources:
+  Resources:
+    ContactsTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: Contacts
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: N 
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 5
+
+    CountersTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: Counters
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 5
+        Item:
+          id: "contactId"
+          counter: 0 
+
+plugins:
+  - serverless-offline  
